@@ -1,6 +1,7 @@
 pipeline {
-    agent any  // Use any available agent
-
+    agent {
+    	any  // Use any available agent
+    }
     tools {
         maven 'Maven'  // Ensure this matches the name configured in Jenkins
     }
@@ -13,13 +14,13 @@ pipeline {
 
         stage('Build') {
             steps {
-                bat 'mvn clean package'  // Run Maven build
+                sh 'mvn clean package'  // Run Maven build
             }
         }
 
         stage('Test') {
             steps {
-                bat 'mvn test'  // Run unit tests
+                sh 'mvn test'  // Run unit tests
             }
         }
 
@@ -29,7 +30,7 @@ pipeline {
         stage('Run Application') {
             steps {
                 // Start the JAR application
-                bat 'java -jar target/MyMavenApp-1.0-SNAPSHOT.jar'
+                sh 'java -jar target/MyMavenApp-1.0-SNAPSHOT.jar'
                 
 
             }
