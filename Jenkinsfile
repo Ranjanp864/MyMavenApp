@@ -13,13 +13,13 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'mvn clean package'  // Run Maven build
+                bat 'mvn clean package'  // Run Maven build
             }
         }
 
         stage('Test') {
             steps {
-                sh 'mvn test'  // Run unit tests
+                bat 'mvn test'  // Run unit tests
             }
         }
 
@@ -29,7 +29,7 @@ pipeline {
         stage('Run Application') {
             steps {
                 // Start the JAR application
-                sh 'java -jar target/MyMavenApp-1.0-SNAPSHOT.jar'
+                bat 'java -jar target/MyMavenApp-1.0-SNAPSHOT.jar'
                 
 
             }
@@ -46,4 +46,4 @@ pipeline {
             echo 'Build failed!'
         }
     }
-}
+}s
