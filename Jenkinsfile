@@ -1,7 +1,6 @@
 pipeline {
-    agent {
-    	any  // Use any available agent
-    }
+    agent any  // Use any available agent
+    
     tools {
         maven 'Maven' 
         jdk 'JDK'  // Ensure this matches the name configured in Jenkins
@@ -15,7 +14,7 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'mvn clean package'  // Run Maven build
+                sh 'mvn clean install'  // Run Maven build
             }
         }
 
